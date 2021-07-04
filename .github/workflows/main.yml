@@ -27,14 +27,19 @@ jobs:
 
       - name: Login to DockerHub Registry
         run: echo ${{ secrets.DOCKERHUB_PASSWORD }} | docker login -u ${{ secrets.DOCKERHUB_USERNAME }} --password-stdin
-      - name: Get the version
+
+        - name: Get the version
         id: vars
         run: echo ::set-output name=tag::$(echo ${GITHUB_SHA::6})
+
       - name: Build the tagged Docker image
         run: cd php-sample-app && docker build . --file Dockerfile --tag g3rhard/php-sample-app:${{steps.vars.outputs.tag}}
+
       - name: Push the tagged Docker image
         run: docker push g3rhard/php-sample-app:${{steps.vars.outputs.tag}}
+
       - name: Build the latest Docker image
         run: cd php-sample-app && docker build . --file Dockerfile --tag g3rhard/php-sample-app:latest
+
       - name: Push the latest Docker image
         run: docker push g3rhard/php-sample-app:latest
