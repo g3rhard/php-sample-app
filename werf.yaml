@@ -2,5 +2,5 @@ configVersion: 1
 project: werf-docker-testing
 ---
 image: werf-php
-dockerfile: werf-php/Dockerfile
+dockerfile: Dockerfile
 context: werf-php
