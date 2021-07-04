@@ -1,7 +1,17 @@
-<?php
+<head>
+<link type="text/css" rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<div id="main">
+	<div class="main">
+		<div class="greetings">
+			<h1>Hello from Kubernetes!</h1>
+		</div>
+		<h2>
+			echo "Site: $_SERVER['SERVER_NAME']<br>";
+		</h2>
+		<p>Testing page. <a href="#">Return to homepage</a></p>
+	</div>
+</div>
 
-echo "Hello World from Kubernetes!<br>";
-echo '<img src="https://www.docker.com/sites/default/files/horizontal.png">';
-echo $_SERVER['SERVER_NAME'];
-
-?>
+</body>
