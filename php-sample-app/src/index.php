@@ -9,7 +9,7 @@
 		</div>
 		<h2>
 		<?php
-			exec("cat /proc/self/cgroup | head -n 1 | cut -d '/' -f3");
+			exec("cat /proc/self/cgroup");
 		?>
 		</h2>
 		<p>Testing page. <a href="#">Return to homepage</a></p>
