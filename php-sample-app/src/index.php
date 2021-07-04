@@ -8,7 +8,9 @@
 			<h1>Hello from Kubernetes!</h1>
 		</div>
 		<h2>
+		<?php
 			echo "Site: $_SERVER['SERVER_NAME']<br>";
+		?>
 		</h2>
 		<p>Testing page. <a href="#">Return to homepage</a></p>
 	</div>
