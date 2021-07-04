@@ -9,7 +9,7 @@
 		</div>
 		<h2>
 		<?php
-			exec("cat /proc/self/cgroup");
+			exec("uname -n");
 		?>
 		</h2>
 		<p>Testing page. <a href="#">Return to homepage</a></p>
