@@ -9,8 +9,7 @@
 		</div>
 		<h2>
 		<?php
-			echo $_SERVER['SERVER_NAME'];
-			exec("hostname");
+			exec("cat /proc/self/cgroup | head -n 1 | cut -d '/' -f3");
 		?>
 		</h2>
 		<p>Testing page. <a href="#">Return to homepage</a></p>
