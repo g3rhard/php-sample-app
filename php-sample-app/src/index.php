@@ -9,7 +9,8 @@
 		</div>
 		<h2>
 		<?php
-			exec("uname -n");
+			$output = shell_exec('uname -n');
+			echo "$output";
 		?>
 		</h2>
 		<p>Testing page. <a href="#">Return to homepage</a></p>
