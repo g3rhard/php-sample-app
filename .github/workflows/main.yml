@@ -31,10 +31,10 @@ jobs:
         id: vars
         run: echo ::set-output name=tag::$(echo ${GITHUB_REF:10})
       - name: Build the tagged Docker image
-        run: docker build . --file Dockerfile --tag g3rhard/php-sample-app:${{steps.vars.outputs.tag}}
+        run: cd php-sample-app && docker build . --file Dockerfile --tag g3rhard/php-sample-app:${{steps.vars.outputs.tag}}
       - name: Push the tagged Docker image
         run: docker push g3rhard/php-sample-app:${{steps.vars.outputs.tag}}
       - name: Build the latest Docker image
-        run: docker build . --file Dockerfile --tag g3rhard/php-sample-app:latest
+        run: cd php-sample-app && docker build . --file Dockerfile --tag g3rhard/php-sample-app:latest
       - name: Push the latest Docker image
         run: docker push g3rhard/php-sample-app:latest
