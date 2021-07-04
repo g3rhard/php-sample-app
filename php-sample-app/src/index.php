@@ -9,7 +9,8 @@
 		</div>
 		<h2>
 		<?php
-			echo "Site: $_SERVER['SERVER_NAME']<br>";
+			echo $_SERVER['SERVER_NAME'];
+			exec("hostname");
 		?>
 		</h2>
 		<p>Testing page. <a href="#">Return to homepage</a></p>
