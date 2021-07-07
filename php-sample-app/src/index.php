@@ -13,7 +13,8 @@
 			echo "$output";
 		?>
 		</h2>
-		<p>Testing page. <a href="#">Return to homepage</a></p>
+		<p><a href="https://github.com/g3rhard/php-sample-app">g3rhard/php-sample-app</a></p>
+		<p><a href="https://g3rhard.github.io">g3rhard.github.io</a></p>
 	</div>
 </div>
 
