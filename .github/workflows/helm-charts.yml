@@ -55,6 +55,6 @@ jobs:
           # The relative path to the chart-releaser config file
           # config: # optional
           # The charts directory
-          charts_dir: helm-charts/development # optional, default is charts
+          charts_dir: helm-charts/ # optional, default is charts
           # The GitHub Pages URL to the charts repo (default: https://<owner>.github.io/<repo>)
           charts_repo_url: https://g3rhard.github.io/php-sample-app # optional
