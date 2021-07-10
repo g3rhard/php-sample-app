@@ -11,13 +11,16 @@ name: Snyk Container
 on:
   push:
     branches: [ main ]
+    paths-ignore:
+      - 'README.md'
+      - 'helm-charts/**/README.md'
+      - 'LICENSE'
   pull_request:
-    # The branches below must be a subset of the branches above
     branches: [ main ]
-  paths-ignore:
-    - 'README.md'
-    - 'helm-charts/**/README.md'
-    - 'LICENSE'
+    paths-ignore:
+      - 'README.md'
+      - 'helm-charts/**/README.md'
+      - 'LICENSE'
 
 jobs:
   snyk:
