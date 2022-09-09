@@ -4,15 +4,15 @@ name: CI
 
 # Controls when the workflow will run
 on:
-  # Triggers the workflow on push or pull request events but only for the main branch
+  # Triggers the workflow on push or pull request events but only for the production branch
   push:
-    branches: [ main ]
+    branches: [ production ]
     paths-ignore:
       - 'README.md'
       - 'helm-charts/**/README.md'
       - 'LICENSE'
   pull_request:
-    branches: [ main ]
+    branches: [ production ]
     paths-ignore:
       - 'README.md'
       - 'helm-charts/**/README.md'
@@ -51,14 +51,3 @@ jobs:
 
       - name: Push the latest Docker image
         run: docker push g3rhard/php-sample-app:latest
-
-      - name: Slack Notification
-        uses: rtCamp/action-slack-notify@v2
-        env:
-          SLACK_CHANNEL: mindless-administrating
-          SLACK_COLOR: ${{ job.status }} # or a specific color like 'good' or '#ff00ff'
-          SLACK_ICON: https://github.com/GitHub.png?size=48
-          SLACK_MESSAGE: 'Post Content :rocket:'
-          SLACK_TITLE: ${{github.repository}} - ${{ job.status }}
-          SLACK_USERNAME: GitHub
-          SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK }}

@@ -10,13 +10,13 @@ name: Snyk Container
 
 on:
   push:
-    branches: [ main ]
+    branches: [ production ]
     paths-ignore:
       - 'README.md'
       - 'helm-charts/**/README.md'
       - 'LICENSE'
   pull_request:
-    branches: [ main ]
+    branches: [ production ]
     paths-ignore:
       - 'README.md'
       - 'helm-charts/**/README.md'
@@ -44,6 +44,7 @@ jobs:
       with:
         image: g3rhard/php-sample-app
         args: --file=php-sample-app/Dockerfile
+
     - name: Upload result to GitHub Code Scanning
       uses: github/codeql-action/upload-sarif@v1
       with:
