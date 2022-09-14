@@ -3,6 +3,16 @@ entries:
   php-sample-app:
   - apiVersion: v2
     appVersion: 0.3.0
+    created: "2022-09-14T08:47:31.701235096Z"
+    description: A Helm chart for Kubernetes
+    digest: 07f8b618ba4e6825b7a8f3e8179d458baede460f7fd691b784fb30ad50822ff1
+    name: php-sample-app
+    type: application
+    urls:
+    - https://github.com/g3rhard/php-sample-app/releases/download/php-sample-app-0.3.2/php-sample-app-0.3.2.tgz
+    version: 0.3.2
+  - apiVersion: v2
+    appVersion: 0.3.0
     created: "2021-07-11T16:59:19.415303613Z"
     description: A Helm chart for Kubernetes
     digest: 4338672dd1f2ff624baea18f9e9f973ca8a818bb36bcc23e345f3d540467a4a1
@@ -21,4 +31,4 @@ entries:
     urls:
     - https://github.com/g3rhard/php-sample-app/releases/download/php-sample-app-0.3.0/php-sample-app-0.3.0.tgz
     version: 0.3.0
-generated: "2021-07-11T16:59:19.415314013Z"
+generated: "2022-09-14T08:47:31.701243996Z"
