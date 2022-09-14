@@ -20,8 +20,6 @@ on:
 
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
-env:
-  DATREE_TOKEN: ${{ secrets.DATREE_TOKEN }}
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
@@ -55,6 +53,8 @@ jobs:
       - name: Test charts via Datree
         run: |
           helm datree test charts/php-sample-app
+        env:
+          DATREE_TOKEN: ${{ secrets.DATREE_TOKEN }}
 
       - name: Helm Chart Releaser
         # You may pin to the exact commit or the version.
@@ -71,3 +71,10 @@ jobs:
           # charts_dir: helm-charts/ # optional, default is charts
           # The GitHub Pages URL to the charts repo (default: https://<owner>.github.io/<repo>)
           # charts_repo_url: https://g3rhard.github.io/php-sample-app # optional
+
+      # - name: Discord notification
+      #   env:
+      #     DISCORD_WEBHOOK: ${{ secrets.DISCORD_WEBHOOK }}
+      #   uses: Ilshidur/action-discord@master
+      #   with:
+      #     args: 'The project {{ EVENT_PAYLOAD.repository.full_name }} from workflow {{ GITHUB_WORKFLOW }} has been deployed.'
