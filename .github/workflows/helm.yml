@@ -1,0 +1,59 @@
+name: Build helm charts
+
+on:
+  push:
+    branches: [ production ]
+    paths-ignore:
+      - 'README.md'
+      - 'helm-charts/**/README.md'
+      - 'LICENSE'
+  pull_request:
+    branches: [ production ]
+    paths-ignore:
+      - 'README.md'
+      - 'helm-charts/**/README.md'
+      - 'LICENSE'
+  workflow_dispatch:
+
+env:
+  DATREE_TOKEN: ${{ secrets.DATREE_TOKEN }}
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+
+      - name: Configure Git
+        run: |
+          git config user.name "$GITHUB_ACTOR"
+          git config user.email "$GITHUB_ACTOR@users.noreply.github.com"
+
+      - name: Install Helm
+        uses: azure/setup-helm@v3
+        with:
+          version: v3.9.0
+
+      - name: Install Datree Helm plugin
+        run: |
+          helm plugin install https://github.com/datreeio/helm-datree
+
+      - name: Test charts via Datree
+        run: |
+          helm datree test charts/php-sample-app
+
+      - name: Helm Chart Releaser
+        uses: helm/chart-releaser-action@v1.4.1
+        env:
+          CR_TOKEN: "${{ secrets.GITHUB_TOKEN }}"
+
+    - name: Send Discord notification
+      uses: sarisia/actions-status-discord@v1
+      if: always()
+      with:
+        title: "${{ github.repository }}: ${{ github.workflow }}"
+        webhook: ${{ secrets.DISCORD_WEBHOOK }}
