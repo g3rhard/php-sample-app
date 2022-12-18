@@ -46,9 +46,9 @@ jobs:
         env:
           CR_TOKEN: "${{ secrets.GITHUB_TOKEN }}"
 
-    - name: Send Discord notification
-      uses: sarisia/actions-status-discord@v1
-      if: always()
-      with:
-        title: "${{ github.repository }}: ${{ github.workflow }}"
-        webhook: ${{ secrets.DISCORD_WEBHOOK }}
+      - name: Send Discord notification
+        uses: sarisia/actions-status-discord@v1
+        if: always()
+        with:
+          title: "${{ github.repository }}: ${{ github.workflow }}"
+          webhook: ${{ secrets.DISCORD_WEBHOOK }}

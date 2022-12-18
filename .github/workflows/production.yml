@@ -14,7 +14,6 @@ on:
       - 'README.md'
       - 'helm-charts/**/README.md'
       - 'LICENSE'
-
   workflow_dispatch:
 
 jobs:
@@ -44,9 +43,9 @@ jobs:
       - name: Push the latest Docker image
         run: docker push g3rhard/php-sample-app:latest
 
-    - name: Send Discord notification
-      uses: sarisia/actions-status-discord@v1
-      if: always()
-      with:
-        title: "${{ github.repository }}: ${{ github.workflow }}"
-        webhook: ${{ secrets.DISCORD_WEBHOOK }}
+      - name: Send Discord notification
+        uses: sarisia/actions-status-discord@v1
+        if: always()
+        with:
+          title: "${{ github.repository }}: ${{ github.workflow }}"
+          webhook: ${{ secrets.DISCORD_WEBHOOK }}
