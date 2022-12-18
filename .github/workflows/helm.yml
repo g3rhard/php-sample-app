@@ -1,3 +1,4 @@
+---
 name: Build helm charts
 
 on:
@@ -19,7 +20,7 @@ env:
   DATREE_TOKEN: ${{ secrets.DATREE_TOKEN }}
 
 jobs:
-  build:
+  helm-charts:
     runs-on: ubuntu-latest
 
     steps:
@@ -33,18 +34,12 @@ jobs:
           git config user.name "$GITHUB_ACTOR"
           git config user.email "$GITHUB_ACTOR@users.noreply.github.com"
 
-      - name: Install Helm
-        uses: azure/setup-helm@v3
+      - name: Run Datree Policy Check
+        uses: datreeio/action-datree@main
         with:
-          version: v3.9.0
-
-      - name: Install Datree Helm plugin
-        run: |
-          helm plugin install https://github.com/datreeio/helm-datree
-
-      - name: Test charts via Datree
-        run: |
-          helm datree test charts/php-sample-app
+          path: 'charts/php-sample-app'
+          cliArguments: '--no-record'
+          isHelmChart: true
 
       - name: Helm Chart Releaser
         uses: helm/chart-releaser-action@v1.4.1
