@@ -1,5 +1,5 @@
 ---
-name: Snyk Container
+name: Snyk
 
 on:
   push:

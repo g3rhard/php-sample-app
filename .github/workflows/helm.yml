@@ -1,5 +1,5 @@
 ---
-name: Build helm charts
+name: Helm
 
 on:
   push:
