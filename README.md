@@ -6,7 +6,7 @@
 
 Sample PHP application for testing purposes. More information you can find at:
 
-* https://g3rhard.github.io/2021/07/kubernetes-minikube-part-1.html
+- https://g3rhard.github.io/2021/07/kubernetes-minikube-part-1.html
 
 [badge-gh-actions-production]: https://github.com/g3rhard/php-sample-app/actions/workflows/production.yml/badge.svg?branch=production
 [link-gh-actions-production]: https://github.com/g3rhard/php-sample-app/actions?query=workflow%3Aproduction
