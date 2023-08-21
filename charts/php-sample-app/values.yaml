@@ -26,13 +26,12 @@ serviceAccount:
 podAnnotations: {}
 
 podSecurityContext: {}
-  # fsGroup: 2000
 
 securityContext:
   allowPrivilegeEscalation: false
   capabilities:
     drop:
-    - ALL
+      - ALL
   readOnlyRootFilesystem: true
   runAsNonRoot: true
   runAsUser: 10000
